@@ -1,0 +1,176 @@
+<p class="Task">Task1</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name.toUpperCase() }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task2</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name.toLowerCase() }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task3</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Date of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name | uppercase }}</td>
+      <td>{{ formatDate(user.birthdate) }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task4</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.birthdate | date:'dd.MM.yyyy' }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="sortUsersByAge()">Sort by Age1</button>
+
+<p class="Task">Task5</p>
+<button (click)="sortUsersByAge1()">Sort by Age2</button>
+
+<p class="Task">Task6</p>
+<div>
+  <label>
+    <input type="checkbox" (change)="sortUsersCheckBox()">
+    Sort by age 
+  </label>
+</div>
+
+<p class="Task">Task7</p>
+<label for="sortField">Sort by:</label>
+<select id="sortField" [(ngModel)]="selectedSortField" (change)="sortUsers()">
+  <option value="">--Select--</option>
+  <option value="name">Name</option>
+  <option value="age">Age</option>
+  <option value="dateOfBirth">Date of Birth</option>
+</select>
+
+<p class="Task">Task8</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.slice(0, 3)">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task9</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.slice(3, 6)">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task10</p>
+<input type="number" [(ngModel)]="numUsers"><br>
+<input type="number" [(ngModel)]="startIndex">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.slice(startIndex, startIndex+numUsers)">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task11</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredUsers">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="Task">Task12</p>
+<input type="text" [(ngModel)]="searchText">
+
+<table>
+  <thead>
+    <tr>
+      <th>Ім'я</th>
+      <th>Вік</th>
+      <th>Дата народження</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filteredUsers1">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.birthdate | date }}</td>
+    </tr>
+  </tbody>
+</table>
